@@ -19,7 +19,6 @@ def generate_svg(dark=True):
         live_red = "#EF4444"
         pill_bg = "#1E1B4B"
         pill_text = "#A78BFA"
-        scanline_op = "0.03"
     else:
         bg = "#F8FAFC"
         card_bg = "#FFFFFF"
@@ -36,7 +35,6 @@ def generate_svg(dark=True):
         live_red = "#DC2626"
         pill_bg = "#EDE9FE"
         pill_text = "#6D28D9"
-        scanline_op = "0.015"
 
     img = Image.open('/var/minis/workspace/github-avatar.png').convert('RGB')
     target_w, target_h = 300, 340
@@ -120,7 +118,6 @@ def generate_svg(dark=True):
             rh = round(dot_scale * 0.92, 2)
             groups[grp_idx].append(f"M{rx},{ry}h{rw}v{rh}h-{rw}Z")
 
-    # Generate CSS animations for shimmer
     css_delays = []
     portrait_paths = []
     for i, g in enumerate(groups):
@@ -145,7 +142,7 @@ def generate_svg(dark=True):
         ("Core.Edge", "Cloudflare Workers · D1 · FastMCP"),
         ("Core.Network", "VpnService · tun2socks · SOCKS5"),
         ("Grid.X", "x.com/hellboy_code"),
-        ("Grid.GitHub", "github.com/3krbkbkrbrbg"),
+        ("Grid.GitHub", "github.com/HELBOYCODER"),
         ("Grid.Bot", "@netranew_bot · @tempmailersaz_bot")
     ]
 
@@ -231,8 +228,8 @@ def generate_svg(dark=True):
   <text x="990" y="86" font-family="'JetBrains Mono', monospace" font-size="11.5" font-weight="700" fill="{live_red}" letter-spacing="0.5">LIVE</text>
 
   <!-- Handle Pill -->
-  <rect x="1035" y="70" width="100" height="24" rx="12" fill="{pill_bg}" stroke="{portrait_color}" stroke-width="1"/>
-  <text x="1085" y="86" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="{pill_text}">@3krbkbkrbrbg</text>
+  <rect x="1025" y="70" width="112" height="24" rx="12" fill="{pill_bg}" stroke="{portrait_color}" stroke-width="1"/>
+  <text x="1081" y="86" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="{pill_text}">@HELBOYCODER</text>
   
   <line x1="460" y1="96" x2="1150" y2="96" stroke="{border}" stroke-width="1"/>
 
@@ -248,10 +245,10 @@ def generate_svg(dark=True):
 '''
     return svg_content
 
-with open('/var/minis/workspace/banner-dark.svg', 'w') as f:
+with open('/var/minis/workspace/profile-repo/banner-dark.svg', 'w') as f:
     f.write(generate_svg(dark=True))
 
-with open('/var/minis/workspace/banner-light.svg', 'w') as f:
+with open('/var/minis/workspace/profile-repo/banner-light.svg', 'w') as f:
     f.write(generate_svg(dark=False))
 
-print("Regenerated with CSS shimmer!")
+print("Regenerated SVGs for HELBOYCODER!")
