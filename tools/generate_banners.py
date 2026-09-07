@@ -1,6 +1,8 @@
+import html
 import random
 from PIL import Image, ImageEnhance, ImageOps, ImageFilter
 import numpy as np
+import xml.etree.ElementTree as ET
 
 def generate_svg(dark=True):
     if dark:
@@ -8,9 +10,7 @@ def generate_svg(dark=True):
         card_bg = "#0D1527"
         card_inner = "#070B14"
         border = "#1E293B"
-        border_glow = "#38BDF8"
         chrome = "#22D3EE"
-        chrome_dim = "#0E7490"
         portrait_color = "#A78BFA"
         accent = "#10B981"
         text_label = "#94A3B8"
@@ -24,9 +24,7 @@ def generate_svg(dark=True):
         card_bg = "#FFFFFF"
         card_inner = "#F1F5F9"
         border = "#CBD5E1"
-        border_glow = "#0284C7"
         chrome = "#0891B2"
-        chrome_dim = "#06B6D4"
         portrait_color = "#7C3AED"
         accent = "#059669"
         text_label = "#475569"
@@ -159,11 +157,14 @@ def generate_svg(dark=True):
         else:
             dot_line = ''
             
+        esc_label = html.escape(label)
+        esc_val = html.escape(val)
+
         row_svg.append(f'''
     <g>
-      <text x="490" y="{cy}" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="13.5" font-weight="600" fill="{text_label}">{label}</text>
+      <text x="490" y="{cy}" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="13.5" font-weight="600" fill="{text_label}">{esc_label}</text>
       {dot_line}
-      <text x="1130" y="{cy}" text-anchor="end" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="13" font-weight="500" fill="{text_val}" lengthAdjust="spacingAndGlyphs">{val}</text>
+      <text x="1130" y="{cy}" text-anchor="end" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="13" font-weight="500" fill="{text_val}" lengthAdjust="spacingAndGlyphs">{esc_val}</text>
     </g>''')
 
     rows_markup = "\n".join(row_svg)
@@ -245,10 +246,22 @@ def generate_svg(dark=True):
 '''
     return svg_content
 
+dark_svg = generate_svg(dark=True)
+light_svg = generate_svg(dark=False)
+
+# Validate XML strictly
+ET.fromstring(dark_svg)
+ET.fromstring(light_svg)
+print("Strict XML Validation PASSED for both dark and light SVGs!")
+
 with open('/var/minis/workspace/profile-repo/banner-dark.svg', 'w') as f:
-    f.write(generate_svg(dark=True))
+    f.write(dark_svg)
 
 with open('/var/minis/workspace/profile-repo/banner-light.svg', 'w') as f:
-    f.write(generate_svg(dark=False))
+    f.write(light_svg)
 
-print("Regenerated SVGs for HELBOYCODER!")
+with open('/var/minis/workspace/profile-repo/tools/generate_banners.py', 'w') as f:
+    with open('/tmp/fix_banners.py') as src:
+        f.write(src.read())
+
+print("Files written successfully!")

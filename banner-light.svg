@@ -162,7 +162,7 @@
     <g>
       <text x="490" y="174" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="13.5" font-weight="600" fill="#475569">Role</text>
       <line x1="546" y1="170" x2="874.0" y2="170" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="2 6"/>
-      <text x="1130" y="174" text-anchor="end" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="13" font-weight="500" fill="#0F172A" lengthAdjust="spacingAndGlyphs">Mobile & Edge Systems Engineer</text>
+      <text x="1130" y="174" text-anchor="end" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="13" font-weight="500" fill="#0F172A" lengthAdjust="spacingAndGlyphs">Mobile &amp; Edge Systems Engineer</text>
     </g>
 
     <g>
