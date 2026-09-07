@@ -1,8 +1,8 @@
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/HELBOYCODER/HELBOYCODER/main/banner-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/HELBOYCODER/HELBOYCODER/main/banner-light.svg">
-    <img alt="profile.sh --live" src="https://raw.githubusercontent.com/HELBOYCODER/HELBOYCODER/main/banner-dark.svg" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/HELBOYCODER/HELBOYCODER/1f896fb/banner-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/HELBOYCODER/HELBOYCODER/1f896fb/banner-light.svg">
+    <img alt="profile.sh --live" src="https://raw.githubusercontent.com/HELBOYCODER/HELBOYCODER/1f896fb/banner-dark.svg" width="100%">
   </picture>
 </div>
 
